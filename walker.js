@@ -5,7 +5,7 @@ var walker = document.getElementById('walker');
 var walkingLeft = false;
 var leftBorder = 0;
 var rightBorder = window.innerWidth - walker.offsetWidth;
-var speed = -10;
+var speed = -4;
 var xPos = rightBorder;
 
 // The update function is called once every "frame" (via setInterval)
@@ -20,20 +20,32 @@ function update() {
   // Reset back to left side, when we run into right wall
   if(xPos >= rightBorder){
     xPos = rightBorder;
-    speed = -10;
+    speed = -4;
     walker.classList.remove("flip");
   }
   else if(xPos <= leftBorder){
     xPos = leftBorder;
-    speed = 10;
+    speed = 4;
     walker.classList.add("flip");
   }
   // reposition the walker
   walker.style.left = xPos + "px";
 
 };
-
+let h1=$('h1');
 walker.addEventListener("click",function(){
+    var url = "http://api.icndb.com/jokes/random";
+    $.ajax({
+      url:url,
+      type:"GET",
+      dataType:"json"
+    }).done(function(response){
+
+      //alert(response.value.joke);
+      h1.text( response.value.joke);
+    });
+
+
   speed = -(speed);
   if(walker.classList == "flip"){
     walker.classList.remove("flip");

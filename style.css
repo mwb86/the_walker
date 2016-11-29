@@ -1,0 +1,23 @@
+h1 {
+  margin-bottom: -200px;
+  text-align: center;
+  font-size: 4em; }
+
+img {
+  cursor: pointer;
+  margin-top: 230px;
+  position: absolute;
+  width: 200px;
+  border: solid black 10px;
+  border-radius: 100px; }
+
+img.flip {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1); }
+
+body, h1 {
+  background-color: grey; }
+  body:hover, h1:hover {
+    background-color: white; }
+
+/*# sourceMappingURL=style.css.map */
